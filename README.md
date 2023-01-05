@@ -1,2 +1,2 @@
 # React Homework
- Every weekend's react assignment
+ Every weekend's react assignment will be submitted here
