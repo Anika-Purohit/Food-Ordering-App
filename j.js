@@ -1,14 +1,30 @@
-const heading = React.createElement("h1",{ id:"title"},"hello from react CDN 1");
-const heading1 = React.createElement("h2",{ id:"title"},"hello from react CDN 2");
-const heading2 = React.createElement("h3",{ id:"title"},"hello from react CDN 3");
+// import react and react dom bcs now we have removed cdn links
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// nested create element 
+const heading = (<h1 id ="title" key="1">Hello from react jsx</h1>)
 
-const multiple = React.createElement("div",{ id:"multiple"},[heading,heading1,heading2]);
-const heading3 = React.createElement("h1",{ id:"title"},"hello from react CDN 4 which isnt nested");
+const MC = ()=>
+{return (<div>
+{heading}    
+<h1>Hello from mc1</h1>
+<h2>trying multiple statements in mc1</h2>
+</div>
+
+);};
+
+// functional component
+const FC = ()=>
+{return (<div>
+{<MC/>}    
+<h1>Hello from fc1</h1>
+<h2>trying multiple statements from fc1</h2>
+</div>
+
+);};
+
+
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(multiple);
-// root.render(heading3); 
-//only one root statement executes at a time 
+root.render(<FC/>);
