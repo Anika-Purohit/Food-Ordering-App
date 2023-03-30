@@ -1,0 +1,37 @@
+{
+  "name": "react-homework",
+  "version": "1.0.0",
+  "description": "Every weekend's react assignment will be submitted here",
+  "scripts": {
+    "start": "parcel ReactMain.html",
+    "build": "parcel build ReactMain.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anika-Purohit/re.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anika-Purohit/re/issues"
+  },
+  "homepage": "https://github.com/Anika-Purohit/re#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@babel/preset-env-standalone": "^7.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
