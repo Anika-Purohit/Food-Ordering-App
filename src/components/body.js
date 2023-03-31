@@ -1,14 +1,10 @@
-import RestaurantCard from "./card";
+import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect} from "react";
 import { Shimmer } from "./Shimmer";
+import { Link } from "react-router-dom";
+import { filterData } from "../utils/filterData";
 
-function filterData(searchText,allRestaurant)
-     {
-     const filtered = allRestaurant.filter((allRestaurant)=>
-     allRestaurant.data.data.name.toLowerCase().includes
-     (searchText.toLowerCase())) ;
-     return filtered;
-     }
+
 const Body = () =>{
 
     const[searchText,setSearchText] = useState("");
@@ -50,8 +46,12 @@ const Body = () =>{
         </div> 
         <div className = "restaurant-display">
         {filterRestaurant.map((filterRestaurant)=>{
-        return <RestaurantCard {...filterRestaurant.data.data}  />;  
-        })} 
+        return(
+        <Link to={"/restaurant/" + filterRestaurant.data.data.id}>
+        <RestaurantCard {...filterRestaurant.data.data}  />
+        </Link> );
+        })
+        } 
        </div>
        </>
     ) 
