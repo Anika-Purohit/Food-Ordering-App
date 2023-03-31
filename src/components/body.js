@@ -3,7 +3,8 @@ import { useState, useEffect} from "react";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/filterData";
-
+import { RESTAURANT_CDN } from "../components/Config";
+import { useOnline } from "../utils/useOnline";
 
 const Body = () =>{
 
@@ -14,13 +15,17 @@ const Body = () =>{
     useEffect( () =>{ getRestaurant(); }, [] );
 
     async function getRestaurant(){
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING");
+    const data = await fetch(RESTAURANT_CDN);
     const json = await data.json();
     console.log(json);
     setFilterRestaurant(json?.data?.cards) ; 
     setAllRestaurant(json?.data?.cards) ; 
     }
 
+    const isOnline = useOnline();
+    if(!isOnline){
+    return <h1> You Are Offline Check Your Internet Connection</h1>    
+    }
     if(!allRestaurant)return null;
 
     return (allRestaurant?.length == 0)?(

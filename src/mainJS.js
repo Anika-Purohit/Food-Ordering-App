@@ -9,9 +9,14 @@ import AboutUs from "./components/AboutUs";
 import Error from "./components/Error";
 import Contact from "./components/ContactPage";
 import RestaurantMenu from "./components/RestaurantMenu";
-import Profile from "./components/FuctionalComponent";
 import ClassBasedComponent from "./components/ClassBasedComponent";
+import { lazy,Suspense } from "react";
 
+// the components are called as default export
+// hooks and config and constants as named export
+// naming convention
+
+const Cart = lazy(()=>import ("./components/Cart"));
 const AppLayout = () =>{
   return(<>
   <Header/>
@@ -42,6 +47,10 @@ children:[
 {
   path:"/",
   element:<Body/>,  
+},
+{
+  path:"/cart",
+  element:<Suspense fallback ={<Shimmer/>}><Cart/></Suspense>,  
 },
 {
   path:"/restaurant/:id",

@@ -1,10 +1,10 @@
-import { img_cdn } from "./Config";
+import { IMG_CDN } from "./Config";
 
 const RestaurantCard =({cloudinaryImageId,name,area,costForTwoString}) =>
 {
  return(
  <div className = 'card'>
- <img src={img_cdn+cloudinaryImageId} 
+ <img src={IMG_CDN + cloudinaryImageId} 
  width="200"></img>
  <h2>{name}</h2> 
  <h3>{area}</h3> 

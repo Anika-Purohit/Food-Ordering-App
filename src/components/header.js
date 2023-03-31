@@ -23,7 +23,9 @@ export const Header = ()=>{
                 <Link to="/contact">
                 <li>Contact Us</li>
                 </Link>
+                <Link to="/cart">
                 <li>Cart</li>
+                </Link>
                </ul> 
             </div>
             {
