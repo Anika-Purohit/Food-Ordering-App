@@ -49,7 +49,7 @@ const Body = () =>{
         }}>
         Search</button> 
         </div> 
-        <div className = "restaurant-display">
+        <div className = "flex-wrap">
         {filterRestaurant.map((filterRestaurant)=>{
         return(
         <Link to={"/restaurant/" + filterRestaurant.data.data.id}>

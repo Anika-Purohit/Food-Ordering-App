@@ -1,33 +1,37 @@
-import { useState } from "react";
+import { useState} from "react";
 import { Link } from "react-router-dom";
-export const Title =()=> {
-    return(
-    <img className = 'logo' src={"https://www.designhill.com/design-blog/wp-content/uploads/2015/01/2-min-4.jpg"} width="210"></img>
-     )}
+import MyLogo from "../utils/MyLogo.jpeg";
+
+ const Title =()=> (
+    <a href="/">
+    <img className="w-40" src={MyLogo}/>
+    </a>  );
      
 export const Header = ()=>{
         const[isLoggedIn,setIsLoggedIn] = useState(true);
+       
         return(
         <>
-        <div className='header'>
+        <div className="flex ">
             <Title/>
         
-            <div className='navigation'>
-               <ul>
+            <div className="flex ">
+               <ul className="flex m-auto ">
                <Link to="/">
-                <li>Home</li>
+                <li className="px-7 font-bold">Home</li>
                 </Link>
                 <Link to="/about">
-                <li>About Us</li>
+                <li className="px-7 font-bold">About Us</li>
                 </Link>
                 <Link to="/contact">
-                <li>Contact Us</li>
+                <li className="px-7 font-bold">Contact Us</li>
                 </Link>
                 <Link to="/cart">
-                <li>Cart</li>
+                <li className="px-7 font-bold">Cart</li>
                 </Link>
                </ul> 
             </div>
+            
             {
              isLoggedIn?
              (<button onClick={() => setIsLoggedIn(false)}>Logout</button>):
