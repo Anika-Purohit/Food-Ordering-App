@@ -13,7 +13,8 @@ import ClassBasedComponent from "./components/ClassBasedComponent";
 import { lazy,Suspense } from "react";
 import { Shimmer } from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
-
+import { Provider } from "react-redux";
+import reduxStore from "./utils/reduxStore";
 
 // the components are called as default export
 // hooks and config and constants as named export
@@ -25,11 +26,13 @@ const AppLayout = () =>{
     name: "Anika Purohit",
   });
   return(
+  <Provider store ={reduxStore}>  
   <UserContext.Provider value ={{ user:user,}}>
   <Header/>
   <Outlet/>
   <Footer/>
-  </UserContext.Provider>  
+  </UserContext.Provider> 
+  </Provider> 
   )  
   }
 const appRouter = createBrowserRouter([

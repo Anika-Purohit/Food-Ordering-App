@@ -1,6 +1,7 @@
 import { useState} from "react";
 import { Link } from "react-router-dom";
 import MyLogo from "../utils/MyLogo.jpeg";
+import { useSelector } from "react-redux";
 
  const Title =()=> (
     <a href="/">
@@ -9,8 +10,9 @@ import MyLogo from "../utils/MyLogo.jpeg";
      
 export const Header = ()=>{
         const[isLoggedIn,setIsLoggedIn] = useState(true);
-       
-        return(
+       const cartItems = useSelector(reduxStore => reduxStore.cart.items);
+       console.log(cartItems);
+       return(
         <>
         <div className="flex ">
             <Title/>
@@ -27,7 +29,7 @@ export const Header = ()=>{
                 <li className="px-7 font-bold">Contact Us</li>
                 </Link>
                 <Link to="/cart">
-                <li className="px-7 font-bold">Cart</li>
+                <li className="px-7 font-bold">Cart - {cartItems.length} items</li>
                 </Link>
                </ul> 
             </div>
