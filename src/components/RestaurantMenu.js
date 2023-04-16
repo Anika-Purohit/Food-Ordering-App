@@ -5,7 +5,7 @@ import useRestaurant from "../utils/useRestaurant";
 import {Shimmer} from "./Shimmer";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
-import { removeItem } from "../utils/cartSlice";
+import { removeItem} from "../utils/cartSlice";
 
 
 const RestaurantMenu = () => {
@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
 
   return !recData ? (<Shimmer />) :(
           <>
-          <div className="menu-items-container">
+          <div data-testid="menu" className="menu-items-container">
             <div className="menu-title-wrap">
               <h3 className="text-2xl font-semibold">BEST SELLERS</h3>
               <p className="text-xl ">
@@ -70,7 +70,7 @@ const RestaurantMenu = () => {
                           : " "}
                       </p>
                       </div>
-                      <button className = "bg-red-500 w-16 h-7"onClick={()=>handleAddItem(itemCards?.card?.info)}>
+                      <button data-testid="addBtn" className = "bg-red-500 w-16 h-7"onClick={()=>handleAddItem(itemCards?.card?.info)}>
                       Add</button>
                       <button className = "bg-red-500 w-16 h-7"onClick={()=>handleRemoveItem(itemCards?.card?.info)}>
                       Remove</button>

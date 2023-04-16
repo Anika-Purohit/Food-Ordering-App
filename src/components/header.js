@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
  const Title =()=> (
     <a href="/">
-    <img className="w-40" src={MyLogo}/>
+    <img data-testid="logo" className="w-40" src={MyLogo}/>
     </a>  );
      
 export const Header = ()=>{
@@ -29,7 +29,7 @@ export const Header = ()=>{
                 <li className="px-7 font-bold">Contact Us</li>
                 </Link>
                 <Link to="/cart">
-                <li className="px-7 font-bold">Cart - {cartItems.length} items</li>
+                <li data-testid="cart" className="px-7 font-bold">Cart - {cartItems.length} items</li>
                 </Link>
                </ul> 
             </div>
