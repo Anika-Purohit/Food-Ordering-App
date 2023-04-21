@@ -30,26 +30,28 @@ const Body = () =>{
 
     return (allRestaurant?.length == 0)?(
         <Shimmer/>):(
-        <> 
-    <div data-testid="search-input" className = 'search-bar'>
+    <div className="bg-yellow-50">
+    <div data-testid="search-input" className = ' flex justify-center'>
+        <div>
         <input 
         type="text" 
-        className="search"
+        className='w-96 p-2 rounded-l-full shadow-lg border-2  font-mono border-orange-900 '
         placeholder="What's on your mind?"
         value={searchText}
         onChange={(e)=>{ 
         setSearchText(e.target.value);
         }}
         /> 
-        <button data-testid="search-button"
-        className="search-btn" 
+        <button className='text-white font-mono shadow-lg p-2 border-2 border-orange-900 rounded-r-full bg-orange-900   ' 
+        data-testid="search-button"
         onClick={() =>{
         const data = filterData(searchText,allRestaurant);    
         setFilterRestaurant(data);       
-        }}>
-        Search</button> 
-        </div> 
-        <div data-testid="rest-list"className = "flex-wrap">
+        }}>search
+        </button> 
+        </div>
+   </div> 
+        <div data-testid="rest-list"className = " flex-wrap ">
         {filterRestaurant.map((filterRestaurant)=>{
         return(
         <Link to={"/restaurant/" + filterRestaurant.data.data.id}>
@@ -58,7 +60,7 @@ const Body = () =>{
         })
         } 
        </div>
-       </>
+       </div>
     ) 
     
     }

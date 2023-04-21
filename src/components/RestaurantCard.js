@@ -4,11 +4,12 @@ import { IMG_CDN } from "./Config";
 const RestaurantCard =({cloudinaryImageId,name,area,costForTwoString}) =>
 {
  return(
- <div className = "px-2 align-top h-80 w-60 flex-wrap inline-block m-7 shadow-lg">
- <img className="h-40 w-60 "src={IMG_CDN + cloudinaryImageId} ></img>
- <h2 className="text-xl font-bold ">{name}</h2> 
- <h3>{area}</h3> 
- <h3 className="font-light">{costForTwoString}</h3> 
+    
+ <div className = "bg-white p-2 align-top h-80 w-60 m-7 flex-wrap inline-block  shadow-2xl rounded-2xl">
+ <img className=" h-40 w-60  rounded-2xl "src={IMG_CDN + cloudinaryImageId} ></img>
+ <h2 className="text-orange-900 text-xl font-bold ">{name}</h2> 
+ <h3 className="font-mono my-2 text-orange-900">{area}</h3>  
+ <h3 className="font-light font-mono text-orange-900">{costForTwoString}</h3> 
  
  </div>   
  )   
