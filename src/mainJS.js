@@ -7,7 +7,7 @@ import Footer from "./components/footer";
 import {createBrowserRouter, RouterProvider ,Outlet} from "react-router-dom";
 import AboutUs from "./components/aboutUs";
 import Error from "./components/error";
-import Contact from "./components/ContactPage";
+import Contact from "./components/contactPage";
 import RestaurantMenu from "./components/RestaurantMenu";
 import ClassBasedComponent from "./components/ClassBasedComponent";
 import { lazy,Suspense } from "react";
