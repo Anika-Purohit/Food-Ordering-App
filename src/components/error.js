@@ -9,4 +9,4 @@ return(
     </>
 )    
 }
-export default Error
+export default Error;

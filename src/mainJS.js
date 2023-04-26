@@ -1,12 +1,12 @@
 // import react and react dom bcs now we have removed cdn links
 import React,{ useContext,useState } from "react";
 import ReactDOM from "react-dom/client";
-import {Header} from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
+import {Header} from "./components/header";
+import Body from "./components/body";
+import Footer from "./components/footer";
 import {createBrowserRouter, RouterProvider ,Outlet} from "react-router-dom";
-import AboutUs from "./components/AboutUs";
-import Error from "./components/Error";
+import AboutUs from "./components/aboutUs";
+import Error from "./components/error";
 import Contact from "./components/ContactPage";
 import RestaurantMenu from "./components/RestaurantMenu";
 import ClassBasedComponent from "./components/ClassBasedComponent";

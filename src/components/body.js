@@ -3,7 +3,7 @@ import { useState, useEffect} from "react";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/filterData";
-import { RESTAURANT_CDN } from "../components/Config";
+import { RESTAURANT_CDN } from "./config";
 import { useOnline } from "../utils/useOnline";
 
 const Body = () =>{

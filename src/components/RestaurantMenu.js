@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { IMG_CDN } from "./Config";
+import { IMG_CDN } from "./config";
 import useRestaurant from "../utils/useRestaurant";
 import { Shimmer } from "./Shimmer";
 import { useDispatch } from "react-redux";
@@ -70,7 +70,7 @@ const RestaurantMenu = () => {
                   <div className=" ">
                   <ul key={index} className="">
                     <div className=" text-red-900">
-                      <div className="rounded-lg shadow-xl hover:scale-110 inline-block w-64   m-5  bg-white rounded-2xl align-top ">
+                      <div className=" shadow-xl hover:scale-110 inline-block w-64   m-5  bg-white rounded-2xl align-top ">
                       <div>{(<img  className="rounded-lg" src={IMG_CDN + item?.imageId} alt="item" />)}</div>
                     
                       <div className="grid grid-row-3">
