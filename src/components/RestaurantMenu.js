@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
   const { id } = useParams();
 
   const restaurant = useRestaurant(id);
-  const restaurantInfo = restaurant?.cards[0]?.card?.card?.info;
+
   const restaurantMenuInfo = restaurant?.cards;
 
   const dispatch = useDispatch();
@@ -60,50 +60,41 @@ const RestaurantMenu = () => {
       {!restaurant ? (
         <Shimmer />
       ) : (
-        <div>
-          <h1>Menu</h1>
+        <div className="bg-yellow-50  ">
+          <h1 className="text-2xl font-bold text-red-900 ml-5 ">Menu</h1>
+          <div className="flex flex-wrap justify-around">
           {uniqueFoodItems.length > 0 ? (
             Object.values(uniqueFoodItems).map((item, index) => {
-              if (index < 25) {
+              if (index < 25 && item?.imageId ) {
                 return (
-                  <li key={index}>
-                    <>
-                      <div>
-                        <span>{item?.name}</span>
-                        <span>
-                          ₹ {(item?.price || item?.defaultPrice) / 100}
-                        </span>
+                  <div className=" ">
+                  <ul key={index} className="">
+                    <div className=" text-red-900">
+                      <div className="rounded-lg shadow-xl hover:scale-110 inline-block w-64   m-5  bg-white rounded-2xl align-top ">
+                      <div>{(<img  className="rounded-lg" src={IMG_CDN + item?.imageId} alt="item" />)}</div>
+                    
+                      <div className="grid grid-row-3">
+                        <div className="m-2 font-bold ">{item?.name}</div>
+                        <div className="font-mono m-2"> ₹ {(item?.price || item?.defaultPrice) / 100} </div>
+                      
+                      <div className="m-auto pb-2 ">
+                        <button className="font-mono p-1 pl-11 pr-11 rounded-full text-white bg-red-900 " onClick={() => {handleAddItem(item);}}> Add </button>
+                        <button className="font-mono ml-2 p-1 pl-7 pr-7 rounded-full  text-white bg-red-900" onClick={() => {handleRemoveItem(item); }}>Remove</button>
                       </div>
-                      <div>
-                        {item?.imageId && (
-                          <img src={IMG_CDN + item?.imageId} alt="item" />
-                        )}
-                        <div>
-                          <button
-                            onClick={() => {
-                              handleRemoveItem();
-                            }}
-                          >
-                            Remove
-                          </button>
-                          <button
-                            onClick={() => {
-                              handleAddItem();
-                            }}
-                          >
-                            Add
-                          </button>
-                        </div>
+                      </div> 
+
                       </div>
-                    </>
-                  </li>
+                    </div>
+                  </ul>
+                </div>  
                 );
               }
             })
           ) : (
             <span>No restaurant menu items.</span>
           )}
-        </div>
+          </div>
+      </div>
       )}
     </div>
   );

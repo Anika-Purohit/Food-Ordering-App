@@ -51,7 +51,7 @@ const Body = () =>{
         </button> 
         </div>
    </div> 
-        <div data-testid="rest-list"className = " flex-wrap ">
+        <div data-testid="rest-list"className = "justify-around ">
         {filterRestaurant.map((filterRestaurant)=>{
         return(
         <Link to={"/restaurant/" + filterRestaurant.data.data.id}>

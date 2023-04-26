@@ -5,7 +5,7 @@ const RestaurantCard =({cloudinaryImageId,name,area,costForTwoString}) =>
 {
  return(
     
- <div className = "bg-white p-2 align-top h-80 w-60 m-7 flex-wrap inline-block  shadow-2xl rounded-2xl">
+ <div className = "bg-white p-2 hover:scale-110 align-top h-80 w-60 m-7 flex-wrap inline-block  shadow-2xl rounded-2xl justify-around">
  <img className=" h-40 w-60  rounded-2xl "src={IMG_CDN + cloudinaryImageId} ></img>
  <h2 className="text-orange-900 text-xl font-bold ">{name}</h2> 
  <h3 className="font-mono my-2 text-orange-900">{area}</h3>  
