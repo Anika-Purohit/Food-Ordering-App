@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/ReactMain.html"
+  status = 200
