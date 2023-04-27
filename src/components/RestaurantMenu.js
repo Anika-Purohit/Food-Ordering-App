@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { IMG_CDN } from "./config";
 import useRestaurant from "../utils/useRestaurant";
-import { Shimmer } from "./Shimmer";
+import {MenuShimmer} from "./MenuShimmer";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 import { removeItem } from "../utils/cartSlice";
@@ -58,7 +58,7 @@ const RestaurantMenu = () => {
   return (
     <div>
       {!restaurant ? (
-        <Shimmer />
+        <MenuShimmer />
       ) : (
         <div className="bg-yellow-50  ">
           <h1 className="text-2xl font-bold text-red-900 ml-5 ">Menu</h1>
