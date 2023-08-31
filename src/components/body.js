@@ -18,14 +18,32 @@ const Body = () =>{
     const data = await fetch(RESTAURANT_CDN);
     const json = await data.json();
     console.log(json);
-    setFilterRestaurant(json?.data?.cards) ; 
-    setAllRestaurant(json?.data?.cards) ; 
-    }
+    setFilterRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ; 
+    setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ; 
+    
+
+    async function checkJsonData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+          // initialize checkData for Swiggy Restaurant data
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+          // if checkData is not undefined then return it
+          if (checkData !== undefined) {
+            return checkData;
+          }
+        }
+      }
+      const resData = await checkJsonData(json);
+      setAllRestaurant(resData);
+    setFilterRestaurant(resData);
+}
 
     const isOnline = useOnline();
     if(!isOnline){
     return <h1> You Are Offline Check Your Internet Connection</h1>    
     }
+
     if(!allRestaurant)return null;
 
     return (allRestaurant?.length == 0)?(
@@ -54,8 +72,8 @@ const Body = () =>{
         <div data-testid="rest-list"className = "justify-around ">
         {filterRestaurant.map((filterRestaurant)=>{
         return(
-        <Link to={"/restaurant/" + filterRestaurant.data.data.id}>
-        <RestaurantCard {...filterRestaurant.data.data}  />
+        <Link to={"/restaurant/" + filterRestaurant.info.id}>
+        <RestaurantCard {...filterRestaurant.info}  />
         </Link> );
         })
         } 
