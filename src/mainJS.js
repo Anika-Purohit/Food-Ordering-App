@@ -8,17 +8,19 @@ import {createBrowserRouter, RouterProvider ,Outlet} from "react-router-dom";
 import AboutUs from "./components/aboutUs";
 import Error from "./components/error";
 import Contact from "./components/contactPage";
-import RestaurantMenu from "./components/RestaurantMenu";
+//import RestaurantMenu from "./components/RestaurantMenu";
 import ClassBasedComponent from "./components/ClassBasedComponent";
 import { lazy,Suspense } from "react";
 import { Shimmer } from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import reduxStore from "./utils/reduxStore";
+import { MenuShimmer } from "./components/MenuShimmer";
 
 // the components are called as default export
 // hooks and config and constants as named export
 // naming convention
+const RestaurantMenu = lazy(()=>import("./components/RestaurantMenu"));
 
 const Cart = lazy(()=>import ("./components/Cart"));
 const AppLayout = () =>{
@@ -65,7 +67,7 @@ children:[
 },
 {
   path:"/restaurant/:id",
-  element:<RestaurantMenu/>,  
+  element:<Suspense fallback={<MenuShimmer/>}><RestaurantMenu/></Suspense>,  
 },
 ],
 },
